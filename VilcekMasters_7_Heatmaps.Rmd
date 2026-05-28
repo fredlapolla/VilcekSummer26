@@ -1,0 +1,177 @@
+---
+title: "Data Analysis with R 7: Bioinformatics Visualization"
+author: "Fred LaPolla"
+date: "7/23/2026"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Heatmaps
+
+### Acknolwedgements:
+
+The following is borrowed from Dr. Itai Yannai and Dr. Igor Dolgalev
+
+***
+
+## Heatmaps
+
+In looking at gene expression data you may want to see a heatmap to see which timepoints/genes are being expressed. A heatmap is a quick way to look at large volumes of data by highlighting cells that have higher or lower values in them. 
+
+```{r, echo = TRUE}
+dolgalevNormRNA <- read.csv("https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/counts.normalized.csv")
+
+```
+
+
+***
+
+## Checking our data
+
+This data provided by Dr. Dolgalev is a table of RNA-seq normalized counts. These are expression values of all genes across different samples. There are wild-type and Tet2-knockout samples (4 of each).
+ 
+For more details on how the table was generated, the steps are summarized here:
+http://bit.ly/snsdemo
+
+```{r, echo = TRUE}
+head(dolgalevNormRNA)
+class(dolgalevNormRNA)
+
+```
+
+We can see column 1 is the gene name, column 2, 3 and 8 and 9 are the Wild Type samples, and columns 4:7 are the knock out samples. 
+
+***
+
+## Reordering to group by type
+
+```{r}
+dolgalevNormRNA<- dolgalevNormRNA[c(1:3,8:9, 4:7)]
+head(dolgalevNormRNA)
+dolgaMat <- as.matrix(dolgalevNormRNA[,2:9], "numeric")
+rownames(dolgaMat)<- dolgalevNormRNA[,1]
+head(dolgaMat)
+class(dolgaMat)
+class(dolgaMat[,1])
+summary(dolgaMat)
+```
+
+
+***
+## Creating a heatmap of KnockOut vs Wild Type
+
+```{r}
+
+
+exp_genesAll <- names(which(rowSums(dolgaMat)>15000))
+
+
+dolgaExp <- dolgaMat[exp_genesAll,]
+
+```
+
+
+
+***
+
+
+```{r}
+#if (!require("BiocManager", quietly = TRUE))
+   # install.packages("BiocManager")
+
+#BiocManager::install("ComplexHeatmap")
+library(ComplexHeatmap)
+Heatmap(dolgaExp)
+
+```
+
+```{r}
+Heatmap(dolgaExp, cluster_columns = FALSE, clustering_method_rows = "complete", show_row_names = FALSE)
+
+```
+
+
+***
+
+## Clustering a pairwise correlation of expressions:
+
+We might look at a heatmap of the highly expressed genes. Explore cor() in RStudio, what does this command do? What is t()? Why are we taking the t() of our matrix?  
+
+```{r}
+
+Heatmap(cor(t(dolgaExp)), show_column_names = FALSE, show_row_names = FALSE)
+
+```
+
+Then we can take this figure, and using a command called hclust, we can pass a method we want the clustering to be done. dist means it is creating a "distance matrix" of the correlations of gene expression, which is a way of saying if we were to chart the values, how far would each be from one another. You can explor ways you can cluster by viewing ?dist. Then this 
+
+```{r}
+
+
+##A correlation of the highly expressed genes in our set
+Cormat <- cor(t(dolgaExp))
+#then it becomes a heatmap
+hotdog <- Heatmap(Cormat)
+print(hotdog)
+
+```
+
+
+```{r}
+## We cluster the values in this set of gene expression using euclidian distance
+## Basically on the backend, R is making a matrix of the values in C and then calculating
+##How far they are from one another
+heirdog <- hclust(d=dist(Cormat))
+
+## Then we are choosing where to cut the dendrogram, here 6 "branches" or groups have
+## been cut, you could also choose to cut the dendrogram by height using h instead of K
+heirchop <- as.factor(cutree(heirdog, k=6))
+## Now we make a heatmap again using the order of the clustering
+hotterdog = ComplexHeatmap::Heatmap(Cormat[heirdog$order, heirdog$order],cluster_rows=FALSE, cluster_columns=FALSE)
+## Finally we add annotations to show the groups that we have made
+annodog = HeatmapAnnotation(df = data.frame(heirchop[heirdog$order]), which = 'row')
+print(hotterdog+annodog)
+
+```
+
+
+*** 
+
+
+
+
+
+We can also use several methods of hierarchical clustering in our chart. To learn more about these try: ?hclust  
+
+```{r}
+Heatmap(Cormat, clustering_method_rows = "complete", cluster_columns = FALSE )
+```
+
+
+
+***
+
+
+
+```{r}
+#install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
+library(RColorBrewer)
+Heatmap(Cormat, col = brewer.pal(7,"BuGn"))
+```
+
+***
+
+
+## Unsupervised Clustering
+
+You can also use a command kmeans() for unsupervised clustering:
+
+```{r}
+kRes <- kmeans(t(Cormat),  10)
+hist(kRes$cluster)
+```
+
