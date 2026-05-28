@@ -1,0 +1,197 @@
+---
+title: "Appraising AI Generated Code"
+author: "Fred LaPolla"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# R and AI 
+
+## What is Vibe-Coding
+
+Vibe coding is a term for relying on AI to generate your code for you based on prompts
+
+***
+
+## Benefits of Vibe-Coding
+
+>- Decreased time spent coding
+>- Lowered barrier to generating code
+>- Can help to format lists of terms
+>- Can help to correct errors. Users can copy and paste an error with the code that generated it and get suggestions. 
+
+***
+
+
+## Drawbacks of Vibe-Coding
+
+>- Lower barrier may encourage creation of code that the user cannot interpret or trouble-shoot
+>- Increased time trouble-shooting and reviewing. 
+>- Hallucinations, logical/workflow issues can and do appear
+>- Code may run but be doing incorrect or improper analyses for the data
+
+***
+
+
+## Past Research
+
+Past research on AI assisted data science has found that errors in modeling appeared in 1/3 of models. 
+
+Moreover, these issues appeared more often in conceptually complex tasks.
+
+***
+
+
+# Risks to be aware of when using AI for R Coding
+
+***
+
+## Automation Bias
+
+A wealth of literature pre-dating generative AI and continuing to the present indicates that automation bias, which is where users trust automated systems over their own expertise, is a common phenomenon. 
+
+Automation bias can take the form of errors of omission (not doing things that an automated system does not suggest) or commission (doing things because an automated system says to). 
+
+Users have been shown to be at higher risk of automation bias in high stress situations, in domains that they lack confidence, or in complex situations. 
+
+***
+
+## Code can work but be wrong
+
+It is possible from a technical standpoint that your code will run but not be answering the question you want it to. 
+
+It is also possible that code will recommend inappropriate tests or illogical cleaning/workflow steps that result in incorrect output.
+
+These errors may not result in an obvious problem but in incorrect conclusions that could have impact on other researchers, patients and studies. 
+
+***
+
+
+## Close but no Cigar
+
+Often, especially with a naive prompt, AI will generate code that does not actually answer the question or need of the prompter. 
+
+This can be an issue of answering what was literally entered, or how the AI interpreted the question. 
+
+It is essential to plan before you prompt what your analysis goals are and what you expect to get out of a prompt. 
+
+***
+
+## Prompt Engineering Tips
+
+Specify the context of what you are trying to do.
+
+Specify the language (R). 
+
+Name any packages you want to rely on, like Tidyverse. 
+
+Provide an "out", e.g. "If not possible return NA"
+
+Consider providing sample expected out put for input.
+
+Ask the AI to provide reasoning and explanations at each step. 
+
+***
+
+## Missed variants, bad order of operations
+
+When generating code, especially in a health/EHR context, essentially equivalent conditions may have different terms applied. The AI may lack this context. 
+
+AI systems can also make decisions about the order of filtering, joining, and subsetting data that impact outcome. 
+
+It is essential to review and understand each step of data cleaning and analysis, and why it is done at a given juncture. 
+
+## Bad Stats
+
+An AI system may run a test that is inappropriate for your data. One common issue is running tests without checking assumptions. 
+
+e.g. Running a parametric test without checking for normality, running a linear regression analysis when inappropriate.
+
+Users may want to make multiple comparisons (i.e. run more than one test), but when doing so it is important to adjust p values and correct for multiple tests being run.
+
+AI tools may suggest incorrect methods for statistical analysis, so it is important to appraise and understand why a given test is being used. 
+
+Visualizations may look appealing but obscure incorrect tests being run or excessive data exclusion resulting in small sample sizes. 
+
+## Reproducibility
+
+AI tools may suggest out-of-date packages or deprecated workflows. 
+AI has a tendency to produce slightly strange code, e.g. in R a reliance on unnecessary For Loops. It is better to have straight-forward code that you understand. 
+
+Dependencies may not be explicitly stated. 
+
+## Repeat Prompting Does Not Result in Better Code
+
+Research by Majdinasab et. al. indicates that constantly having an AI iterate over code (i.e. feeding code back and prompting to improve it), can actually cause worse results and more security issues. 
+
+## Appraisal
+
+Always review code and ensure you understand what it says. 
+
+One approach is CARE:
+
+- Classify the output: an explanation, a generated work
+- Assess for accuracy
+- Refer to other sources
+- Enhance and build on the work
+
+## Tips
+
+Explicitly state the language you are using and favored packages (e.g. Tidyverse). 
+
+Give examples of expected output based on input (few shot prompting)
+
+Always review the code and run it in a clean environment to make sure it runs.
+
+Request AI to justify reasoning and steps. 
+
+Ensure that you can justify reasoning and steps. If a step is unclear or illogical to you, do not use it. 
+
+## Checklist
+
+|Question| 
+|----------|
+|Does the answer match your question or need?|
+|Does the order of operations of cleaning and analysis make sense?|
+|Are the statistical tests used appropriate?|
+|Do the results make sense statistically?|
+|Are assumptions checked?|
+|Can code be run from scratch in a clean environment?|
+|Can I explain every step?|
+
+
+***
+
+## Bibliography
+
+1. N. Nascimento, E. Guimarães, S. S. Chintakunta, and S. A. Boominathan, “How Effective are LLMs for Data Science Coding? A Controlled Experiment,” 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR), pp. 211–222, Apr. 2025, doi: 10.1109/MSR66628.2025.00041.
+2. N. Nascimento, E. Guimarães, S. S. Chintakunta, and S. A. Boominathan, “LLM4DS: Evaluating Large Language Models for Data Science Code Generation,” ArXiv, vol. abs/2411.11908, Nov. 2024, doi: 10.48550/arXiv.2411.11908.
+3. Z. Wang, B. P. Danek, Z. Yang, Z. Chen, and J. Sun, “Can Large Language Models Replace Data Scientists in Clinical Research?” ArXiv, vol. abs/2410.21591, 2024, doi: 10.48550/arXiv.2410.21591.
+4. X. Song et al., “Performance Evaluation of Large Language Models in Statistical Programming,” ArXiv, vol. abs/2502.13117, Feb. 2025, doi: 10.48550/arXiv.2502.13117.
+5. A. Turcotte and N. Mehta, “The Fault in our Stats,” 2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE), pp. 2491–2503, Nov. 2025, doi: 10.1109/ASE63991.2025.00205.
+6. A. Mcnutt, G. Kindlmann, and M. Correll, “Surfacing Visualization Mirages,” Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems, Jan. 2020, doi: 10.1145/3313831.3376420.
+7. K. Gu, R. Shang, T. Althoff, C. Wang, and S. Drucker, How Do Analysts Understand and Verify AI-Assisted Data Analyses? 2023. doi: 10.1145/3613904.3642497.
+8. S. Ahmed, M. Wardat, H. Bagheri, B. D. Cruz, and H. Rajan, “Characterizing Bugs in Python and R Data Analytics Programs,” ArXiv, vol. abs/2306.08632, Jun. 2023, doi: 10.48550/arXiv.2306.08632.
+9. D. Robinson, N. A. Ernst, E. Vargas, and M. Storey, “Error Identification Strategies for Python Jupyter Notebooks,” 2022 IEEE/ACM 30th International Conference on Program Comprehension (ICPC), pp. 253–263, Mar. 2022, doi: 10.1145/3524610.3529156.
+10. A. Turcotte and Z. Wu, “Expressing and Checking Statistical Assumptions,” Proceedings of the ACM on Software Engineering, vol. 2, pp. 2735–2758, Jun. 2025, doi: 10.1145/3729391.
+11. C. Yang, R. A. Brower-Sinning, G. Lewis, and C. Kästner, Data Leakage in Notebooks: Static Detection and Better Processes. 2022. doi: 10.1145/3551349.3556918.
+12.J. F. Pimentel, L. G. P. Murta, V. Braganholo, and J. Freire, “Understanding and improving the quality and reproducibility of Jupyter notebooks,” Empirical Software Engineering, vol. 26, May 2021, doi: 10.1007/s10664-021-09961-9.
+13. M. A. Islam, M. Asaduzzman, and S. Wang, On the Executability of R Markdown Files. 2024, pp. 254–264. doi: 10.1145/3643991.3644931.
+14. J. Cui and R. Alexander, “Same Prompt, Different Outcomes: Evaluating the Reproducibility of Data Analysis by LLMs,” Feb. 15, 2026.
+15. M. Kazemitabaar et al., Improving Steering and Verification in AI-Assisted Data Analysis with Interactive Task Decomposition. 2024. doi: 10.1145/3654777.3676345.
+16. Mao T, Zhao D, Tang H, Wang X, Zhang H. A Large-Scale Comprehensive Measurement of AI-Generated Code in Real-World Repositories A Large-Scale Comprehensive Measurement of AI-Generated Code in Real-World Repositories [Internet]. arXiv; 2026 [cited 2026 May 15]. Available from: http://arxiv.org/abs/2603.27130 doi:10.48550/arXiv.2603.27130
+17. Sabra A, Schmitt O, Tyler J. Assessing the Quality and Security of AI-Generated Code: A Quantitative Analysis [Internet]. arXiv; 2025 [cited 2026 May 15]. Available from: http://arxiv.org/abs/2508.14727 doi:10.48550/arXiv.2508.14727
+18. Assessing the Quality and Security of AI-Generated Code: A Quantitative Analysis [Internet]. [cited 2026 May 15]. Available from: https://arxiv.org/html/2508.14727v1
+19. Winberg D, Tsai E, Tang T, Xuan D, Marchi N, Shi L. Can AI write your code? A case study of chatgpt’s statistical coding capabilities for quantitative research. Health Econ Rev. 2026 Jan 20;16:17. doi:10.1186/s13561-025-00714-8 PubMed PMID: 41572109; PubMed Central PMCID: PMC12911307.
+21. Turner K. Five Things to Check Before You Trust AI-Generated Machine Learning Code. Statistical Horizons [Internet]. 2025 Dec 8 [cited 2026 May 15]. Available from: https://statisticalhorizons.com/five-things-to-check-before-you-trust-ai-generated-machine-learning-code/
+22. High-impact AI in analysis, code and statistics [Internet]. [cited 2026 May 15]. Available from: https://www.frontiersin.org/ai-playbook/research-stages/analysis-code-statistics
+23. Nascimento N, Guimaraes E, Chintakunta SS, Boominathan SA. How Effective are LLMs for Data Science Coding? A Controlled Experiment. In: 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR) [Internet]. 2025 [cited 2026 May 15]. p. 211–22. Available from: https://ieeexplore.ieee.org/document/11025766/ doi:10.1109/MSR66628.2025.00041
+24. Bradshaw P. I tested AI tools on data analysis — here’s how they did (and what to look out for). Medium [Internet]. 2026 Jan 10 [cited 2026 May 15]. Available from: https://paulbradshaw.medium.com/i-tested-ai-tools-on-data-analysis-heres-how-they-did-and-what-to-look-out-for-fef63b28246e
+25. Casseau C, Falleri JR, Blanc X, Degueule T. Immediate Feedback for Students to Solve Notebook Reproducibility Problems in the Classroom. In: 2021 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC) [Internet]. 2021 [cited 2026 May 15]. p. 1–5. Available from: https://ieeexplore.ieee.org/document/9576363/ doi:10.1109/VL/HCC51201.2021.9576363
+26. Turcotte A, Mehta NN. The Fault in our Stats. In: 2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE) [Internet]. 2025 [cited 2026 May 15]. p. 2491–503. Available from: https://ieeexplore.ieee.org/document/11334421/ doi:10.1109/ASE63991.2025.00205
+27. Vibe coding. In: Wikipedia [Internet]. 2026 [cited 2026 May 28. Available from: https://en.wikipedia.org/w/index.php?title=Vibe_coding&oldid=1355993502
+
+
