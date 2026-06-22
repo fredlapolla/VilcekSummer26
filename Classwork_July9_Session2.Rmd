@@ -1,0 +1,81 @@
+---
+title: "Classwork Worksheet 1"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+1.Provide a simple file naming plan for keeping your analysis files organized
+
+```{r}
+
+```
+
+2. How can using an R project help keep your analysis files organized?
+
+```{r}
+
+```
+
+3. If using AI for code generation, what are some analysis risks?
+
+```{r}
+
+```
+
+
+## NYC HANES Diabetes subset Questions
+
+Data can be accessed at: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/NYC_HANES_DIAB.csv
+
+4. Provide three ways to get an overview/sense of data in your nyc hanes dataset:
+
+```{r}
+
+```
+
+5. What is the structure of your nyc data?
+
+```{r}
+
+```
+
+6. Before cleaning data what is the class of the column AGEGROUP?
+
+```{r}
+
+```
+
+7. What data type seems most appropriate for AGEGROUP?
+
+```{r}
+
+```
+
+8. How do we recode AGEGROUP to that data type?
+
+```{r}
+
+```
+
+9. Why might we want to use labels for different categories, e.g. Youngest, Middle or Aged as opposed to 1,2, and 3.
+
+```{r}
+
+```
+
+10. What differentiates a matrix from a data frame?
+
+```{r}
+
+```
+
