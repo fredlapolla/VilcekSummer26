@@ -1,0 +1,113 @@
+---
+title: "Classwork Worksheet 1"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Questions
+
+1. What is the area of research in which you want to do your project?
+
+```{r}
+
+```
+
+
+2. Name a possible data set of interest for your topic. If you are analyzing data you created or from a past research project, describe it in terms of domain and scope.If it is a publicly available dataset, provide a URL. 
+
+```{r}
+
+```
+
+3. What if any restrictions are there on access? Are there fees? Do you have to register? Who is allowed to access this data? 
+
+```{r}
+
+```
+
+4. How many records does the data you are interested in contain?
+
+```{r}
+
+```
+
+
+5. How many variables? 
+
+```{r}
+
+```
+
+6. What possible research questions could you ask? This does not need to be a fleshed out PICO style question, but what generally may be worth exploring in this data?
+
+```{r}
+
+```
+
+7. What is the relevance of your research question?
+
+```{r}
+
+```
+
+8. What may be challenges or limitations in working with this data source? 
+
+```{r}
+
+```
+
+9. Are there possible ethical challenges?
+
+```{r}
+
+```
+
+
+## NYC HANES Diabetes subset Questions
+
+10. How many records or observations does the NYC HANES diabetes subset dataset contain?
+
+```{r}
+
+```
+
+11. How many variables are contained in it? 
+
+```{r}
+
+```
+
+12. If we had a csv file of this data, what command might we run to load it?
+
+```{r}
+
+```
+
+13. We receive an error when we run try to get the average age (SPAGE) by running the following:
+
+> Mean(nyc$spage)
+
+What possible solutions could we try to get this to run?
+
+```{r}
+
+```
+
+14. What are some sources of information we might use to look up how to solve 13?
+
+```{r}
+
+```
+
+
+15. How would we add a comment to explain we were taking the average of age?
+
+```{r}
+
+```
+
