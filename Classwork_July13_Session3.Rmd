@@ -1,0 +1,92 @@
+---
+title: "Classwork Worksheet 1"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Questions
+
+1.What dataset are you working with for your final and provide a brief synopsis of what it contains? 
+
+```{r}
+
+```
+
+2. What is a research question of interest to you relating to this data? Provide the question in a PICO format: Problem/Population Intervention/Exposure Comparison Outcome. https://pmc-ncbi-nlm-nih-gov.ezproxy.med.nyu.edu/articles/PMC11129835/ 
+
+```{r}
+
+```
+
+
+3. Does this question meet the FINER criteria? Break down letter by letter to demonstrate. https://pmc-ncbi-nlm-nih-gov.ezproxy.med.nyu.edu/articles/PMC11129835/
+
+```{r}
+
+```
+
+
+
+4. What variables are relevant to your research question?
+
+```{r}
+
+```
+
+
+5. Demonstrate how you would use ifelse() to make a given continuous variable into a dichtomous factor variable
+
+```{r}
+
+```
+
+
+
+
+
+## NYC HANES Diabetes subset Questions
+
+Data can be accessed at: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/NYC_HANES_DIAB.csv
+
+6. Use apply() to find the median value of CADMIUM, LEAD CHOLESTEROLTOTAL, GLUCOSESI, CREATININESI, and CREATININE
+
+```{r}
+
+```
+
+
+7.  Do the same using sapply()
+
+```{r}
+
+```
+
+8. Use a for loop to find the median value of columns 16:19
+
+```{r}
+
+```
+
+
+9. Make a for loop to find the standard deviation (hint sd() ) of CHOLESTEROLTOTAL, GLUCOSESI, CREATININESI, AND CREATININE
+
+```{r}
+
+```
+
+
+
+
+10. Use ifelse to create a new variable of high and normal A1C dichotomizing with 7 as a threshold for high levels
+
+```{r}
+
+
+```
