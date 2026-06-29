@@ -1,0 +1,77 @@
+---
+title: "Classwork Worksheet 5"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+1.Using your final project data, identify three variables of interest and assess if they are normal or not using....
+
+a) A Histogram
+
+```{r}
+
+```
+
+b) A Boxplot
+
+```{r}
+
+```
+
+c) A QQ Plot
+
+```{r}
+
+```
+
+2) If you data features continuous variables, visualize any potential correlations. If not, provide the command you would use to visualize correlations.
+
+```{r}
+
+```
+
+## Additional Questions
+
+Use the following data for the next questions:
+https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/NYC_HANES_DIAB.csv
+
+3. Why would one use a visualization for exploratory analysis?
+
+
+
+4.What information about the nature of our data can a histogram tell us?
+
+
+5. Make a histogram on LEAD from the nyc data frame. Is it skewed? Which way? 
+
+```{r}
+
+```
+
+6. Make a QQPlot to assess the normality UCREATININE. Is the distribution normal? How can you tell?
+
+```{r}
+
+```
+
+7. Make a boxplot glucose levels by diabetes diagnosis:
+
+```{r}
+
+```
+
+8. Make a scatterplot of total cholesterol by LDL. Does there appear to be a relationship?
+
+```{r}
+
+```
