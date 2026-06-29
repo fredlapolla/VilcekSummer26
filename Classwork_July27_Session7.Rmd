@@ -1,0 +1,31 @@
+---
+title: "Classwork Worksheet 5"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+
+# General Questions
+
+Pull in this data, https://raw.githubusercontent.com/fredlapolla/VilcekSummerDataAnalysis2024/master/elife-32032-fig2-data1_CSV.csv, which is from this paper:
+
+Piechura JR, Amarnath K, O'Shea EK. Natural changes in light interact with circadian regulation at promoters to control gene expression in cyanobacteria. Elife. 2017 Dec 14;6:e32032. doi: 10.7554/eLife.32032. PMID: 29239721; PMCID: PMC5785211.
+
+Make a heatmap of the pearson's R correlation of genes that are expressed such that the rowSums are greater than 100. 
+
+```{r}
+
+
+```
+
+
