@@ -1,0 +1,52 @@
+---
+title: "Classwork Worksheet 9"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-08-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+1.What direct comparisons would you like to make to understand more about your data? By direct comparisons, I mean two variables like examining if cholesterol levels differ by age. List the bivariate pairs, and what comparing them will tell you. 
+
+```{r}
+
+```
+
+2. What types of data are contained in the variables you have listed above (e.g. numeric, factor). Explicitly state what type of data for each variable. 
+
+```{r}
+
+```
+
+3. What types of tests are appropriate for each bivariate pair, and why?
+
+```{r}
+
+```
+
+4. What is the main inference you are trying to make in your presentation (e.g. Does increased age correlate with higher cholesterol)?
+
+```{r}
+
+```
+
+5. Provide the code for how to examine that question as a bivariate test. 
+
+```{r}
+
+```
+
+6. Provide the code for the additional comparisons you are making, that you listed in question 1. The purpose here is to consider if additional variables may have a relationship with your main question.
+
+```{r}
+
+```
+
