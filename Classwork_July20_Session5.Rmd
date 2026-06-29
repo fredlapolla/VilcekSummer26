@@ -1,0 +1,79 @@
+---
+title: "Classwork Worksheet 5"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+1.Is your data in a tidy format or another format? Explain what makes it tidy or not. 
+
+```{r}
+```
+
+2. Provide the code for how you have made a subset of your data and explain why you have subsetted it in that way. For example, maybe you are simplifying down to key variables for simplicity, or looking at a subset of records, such as to investigate NAs or to analyze a specific group. 
+
+```{r}
+
+```
+
+3. Has your research question changed? Please state your current question in PICO format. 
+
+```{r}
+ 
+```
+
+## Worksheet Questions
+
+Use the Synthetic Mass Data:
+
+Observations: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/observations.csv
+
+Patients: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/patients.csv
+
+Medications: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/medications.csv
+
+Conditions: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/conditions.csv
+
+4. Make a subset of Patient data to have patient ID, sex/gender, race and ethnicity. 
+
+```{r}
+
+```
+
+5. Make a subset of observation data for body weight and body height, and filter to have only the most recent of each. 
+
+```{r}
+
+
+```
+
+6. Convert the body weight and height tables to wide format. 
+
+```{r}
+
+
+```
+
+7. Merge the body weight and height information onto your demographic dataframe created in question one. 
+
+```{r}
+
+```
+
+8. Calculate BMI into a new column. The equation is weight (kg)/height ^2 (m)
+
+```{r}
+
+```
+
+
+
