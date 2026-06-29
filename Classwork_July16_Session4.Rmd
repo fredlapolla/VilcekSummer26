@@ -1,0 +1,91 @@
+---
+title: "Classwork Worksheet 1"
+output: html_document
+author: YOUR NAME HERE
+date: "2026-07-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1 pt per question
+
+
+## Questions
+
+1.Why would one want to provide a code like 777 or 999 for a missing value?
+
+```{r}
+
+```
+
+2. In the variables you have identified as of interest in your data, are missing variables coded any specific way? If so provide code for how to recode those variables. 
+
+```{r}
+
+
+```
+
+
+3. In the variables of interest, how many missing values are present? What is the proportion of missing values? Do you anticipate this impacting your analysis decisions?
+
+```{r}
+
+```
+
+
+4.Provide code showing how you have recoded any incorrectly coded variables (e.g. numeric to factor)
+
+```{r}
+
+```
+
+
+
+
+## NYC HANES Diabetes subset Questions
+
+Data can be accessed at: https://raw.githubusercontent.com/fredlapolla/VilcekSummer26/refs/heads/main/NYC_HANES_DIAB.csv
+
+
+
+5. Create a subset of males and find the median total cholesterol level
+
+```{r}
+
+```
+
+
+6. Try to create a summary of the mean A1C using two factors, GENDER and DX_DBTS (e.g. A1C for males without diabetes, A1C for males with diabetes,A1C females without,A1C females with)
+
+```{r}
+
+```
+
+
+7. How does R treat blank values?
+
+```{r}
+
+```
+
+
+8. What command can be used to identify where NAs are located in a column?
+
+```{r}
+
+```
+
+
+9. How can you use indexing to create a subset without any NAs?
+
+```{r}
+
+```
+
+10. How could you delete a column of data, for example, the 5th 
+
+```{r}
+
+```
